@@ -23,49 +23,57 @@ calcBtnsEl.addEventListener('click',(event)=>{
     if(document.getElementById("sign").innerText ==="+"){
     result = num1Val + num2Val;
     } else if (document.getElementById("sign").innerText ==="-"){
-      result = (num1Val - num2Val).toFixed(5); 
+      result = (num1Val - num2Val).toFixed(1); 
     } else if (document.getElementById("sign").innerText === "*"){
       result = num1Val * num2Val;
      } else if (document.getElementById("sign").innerText === "/"){
-     result = (num1Val / num2Val).toFixed(5);
+     result = (num1Val / num2Val).toFixed(1);
     } else {result = num1Val;}
     document.querySelector(" #result span").innerText = result;
-  } 
-  if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === 'ce'){
-    document.getElementById("num1").innerText="";
-    document.getElementById("num2").innerText="";
-    document.getElementById("sign").innerText="";
-    document.querySelector(" #result span").innerText="";
-    activeNum = document.getElementById("num1");
-  }
-  if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === "mr"){
-    let num1Val = +document.getElementById("num1").innerText;
-    let num2Val = +document.getElementById("num2").innerText;
-    memory=0;
-    if(document.getElementById("sign").innerText ==="+"){
+}
+if(document.querySelector(" #result span").innerText != ''){
+if(event.target.nodeName ==="BUTTON" && (event.target.dataset.sign==="+"||event.target.dataset.sign ==="-"||event.target.dataset.sign ==="*"||event.target.dataset.sign ==="/")){
+  activeNum = document.getElementById("num1");
+  activeNum.innerText = document.querySelector(" #result span").innerText;
+  document.getElementById("num2").innerText="";
+  activeNum = document.getElementById("num2");
+}
+}
+if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === 'ce'){
+  document.getElementById("num1").innerText="";
+  document.getElementById("num2").innerText="";
+  document.getElementById("sign").innerText="";
+  document.querySelector(" #result span").innerText="";
+  activeNum = document.getElementById("num1");
+}
+if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === "mr"){
+  let num1Val = +document.getElementById("num1").innerText;
+  let num2Val = +document.getElementById("num2").innerText;
+  memory=0;
+  if(document.getElementById("sign").innerText ==="+"){
     memory = num1Val + num2Val;
   } else if (document.getElementById("sign").innerText ==="-"){
-    memory = (num1Val - num2Val).toFixed(5); 
+    memory = (num1Val - num2Val).toFixed(10); 
   } else if (document.getElementById("sign").innerText === "*"){
     memory = num1Val * num2Val;
    } else if (document.getElementById("sign").innerText === "/"){
-    memory = (num1Val / num2Val).toFixed(5);;
+    memory = (num1Val / num2Val).toFixed(10);;
    } else {memory = num1Val;}
-      document.getElementById("num1").innerText="";
-      document.getElementById("num2").innerText="";
-      document.getElementById("sign").innerText="";
-      document.querySelector(" #result span").innerText="";
-      activeNum = document.getElementById("num1");
-    //alert(memory);
-  }
-  if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === 'm+'){
-    activeNum.innerText = memory;
-  }
+    document.getElementById("num1").innerText="";
+  document.getElementById("num2").innerText="";
+  document.getElementById("sign").innerText="";
+  document.querySelector(" #result span").innerText="";
+  activeNum = document.getElementById("num1");
+ alert(memory);
+}
+if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === 'm+'){
+  activeNum.innerText = memory;
+}
 
-  if(event.target.nodeName ==="BUTTON" && event.target.dataset.register === '.'){
-    const attrVal = event.target.getAttribute("data-register");
-    activeNum.innerText += attrVal;
-  }
+if(event.target.nodeName ==="BUTTON" && event.target.dataset.register === '.'){
+  const attrVal = event.target.getAttribute("data-register");
+  activeNum.innerText += attrVal;
+}
 
 })
 
