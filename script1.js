@@ -23,11 +23,11 @@ calcBtnsEl.addEventListener('click',(event)=>{
     if(document.getElementById("sign").innerText ==="+"){
     result = num1Val + num2Val;
     } else if (document.getElementById("sign").innerText ==="-"){
-      result = num1Val - num2Val; 
+      result = (num1Val - num2Val).toFixed(5); 
     } else if (document.getElementById("sign").innerText === "*"){
       result = num1Val * num2Val;
      } else if (document.getElementById("sign").innerText === "/"){
-     result = num1Val / num2Val;
+     result = (num1Val / num2Val).toFixed(5);
     } else {result = num1Val;}
     document.querySelector(" #result span").innerText = result;
   } 
@@ -45,11 +45,11 @@ calcBtnsEl.addEventListener('click',(event)=>{
     if(document.getElementById("sign").innerText ==="+"){
     memory = num1Val + num2Val;
   } else if (document.getElementById("sign").innerText ==="-"){
-    memory = num1Val - num2Val; 
+    memory = (num1Val - num2Val).toFixed(5); 
   } else if (document.getElementById("sign").innerText === "*"){
     memory = num1Val * num2Val;
    } else if (document.getElementById("sign").innerText === "/"){
-    memory = num1Val / num2Val;
+    memory = (num1Val / num2Val).toFixed(5);;
    } else {memory = num1Val;}
       document.getElementById("num1").innerText="";
       document.getElementById("num2").innerText="";
