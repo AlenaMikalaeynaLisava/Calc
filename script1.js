@@ -31,13 +31,11 @@ calcBtnsEl.addEventListener('click',(event)=>{
     } else {result = num1Val;}
     document.querySelector(" #result span").innerText = result;
 }
-if(document.querySelector(" #result span").innerText != ''){
-if(event.target.nodeName ==="BUTTON" && (event.target.dataset.sign==="+"||event.target.dataset.sign ==="-"||event.target.dataset.sign ==="*"||event.target.dataset.sign ==="/")){
+if(document.querySelector(" #result span").innerText != ''&&(event.target.nodeName ==="BUTTON" && (event.target.dataset.sign==="+"||event.target.dataset.sign ==="-"||event.target.dataset.sign ==="*"||event.target.dataset.sign ==="/"))){
   activeNum = document.getElementById("num1");
   activeNum.innerText = document.querySelector(" #result span").innerText;
   document.getElementById("num2").innerText="";
   activeNum = document.getElementById("num2");
-}
 }
 if(event.target.nodeName ==="BUTTON" && event.target.dataset.memory === 'ce'){
   document.getElementById("num1").innerText="";
