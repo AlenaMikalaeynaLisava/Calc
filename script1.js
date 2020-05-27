@@ -43,13 +43,14 @@ calcBtnsEl.addEventListener('click',(event)=>{
     let num2Val = +document.getElementById("num2").innerText;
     memory=0;
     if(document.getElementById("sign").innerText ==="+"){
-      memory = num1Val + num2Val;
-    } else if (document.getElementById("sign").innerText ==="-"){
-      memory = num1Val - num2Val; 
-    } else if (document.getElementById("sign").innerText === "*"){
-      memory = num1Val * num2Val;
-    } else {
-      memory = num1Val / num2Val;}
+    memory = num1Val + num2Val;
+  } else if (document.getElementById("sign").innerText ==="-"){
+    memory = num1Val - num2Val; 
+  } else if (document.getElementById("sign").innerText === "*"){
+    memory = num1Val * num2Val;
+   } else if (document.getElementById("sign").innerText === "/"){
+    memory = num1Val / num2Val;
+   } else {memory = num1Val;}
       document.getElementById("num1").innerText="";
       document.getElementById("num2").innerText="";
       document.getElementById("sign").innerText="";
